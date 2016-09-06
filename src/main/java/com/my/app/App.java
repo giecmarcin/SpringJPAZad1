@@ -35,5 +35,11 @@ public class App
         Person personFromDb = personDao.savePerson(person);
         System.out.println(personFromDb.getContacts().size());
         System.out.println(personFromDb.toString());
+
+        List<Person> foundePeople = personDao.findByNameAndLastname(personFirstname, personLastname);
+        System.out.println("Founded ");
+        for(Person p: foundePeople){
+            System.out.println(p.toString());
+        }
     }
 }
