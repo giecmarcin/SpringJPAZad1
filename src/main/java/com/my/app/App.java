@@ -6,7 +6,9 @@ import com.my.app.model.Person;
 import com.my.app.repository.PersonDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.orm.jpa.EntityManagerFactoryUtils;
 
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -32,14 +34,14 @@ public class App
             contacts.add(new Contact(UUID.randomUUID().toString(), UUID.randomUUID().toString()));
         }
         person.setContacts(contacts);
-        Person personFromDb = personDao.savePerson(person);
-        System.out.println(personFromDb.getContacts().size());
-        System.out.println(personFromDb.toString());
+        personDao.savePerson(person);
 
-        List<Person> foundePeople = personDao.findByNameAndLastname(personFirstname, personLastname);
-        System.out.println("Founded ");
-        for(Person p: foundePeople){
-            System.out.println(p.toString());
+        for(Contact c: person.getContacts()){
+            System.out.println(c.toString());
         }
+
+//        Person person = personDao.test1();
+//        person.setFirstName("OUTER SCOPE!");
+//        personDao.test2();
     }
 }

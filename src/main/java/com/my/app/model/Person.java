@@ -18,7 +18,7 @@ public class Person {
     private String firstName;
     private String lastname;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_person")
     private List<Contact> contacts = new ArrayList<>();
 
