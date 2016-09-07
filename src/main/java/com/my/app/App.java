@@ -21,7 +21,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         PersonDao personDao = context.getBean("personDao", PersonDao.class);
 
@@ -35,10 +34,11 @@ public class App
         }
         person.setContacts(contacts);
         personDao.savePerson(person);
+        System.out.println(person);
 
-        for(Contact c: person.getContacts()){
-            System.out.println(c.toString());
-        }
+//        for(Contact c: person.getContacts()){
+//            System.out.println(c.toString());
+//        }
 
 //        Person person = personDao.test1();
 //        person.setFirstName("OUTER SCOPE!");

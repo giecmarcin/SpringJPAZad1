@@ -36,7 +36,7 @@ public class PersonDao {
      * You may call this method on an already persistent instance, and nothing happens.
      * But if you try to persist a detached instance, the implementation is bound to throw an exception.
 
-     Metoda merge
+     merge
      The main intention of the merge method is to update a persistent entity instance with
      new field values from a detached entity instance.
 
